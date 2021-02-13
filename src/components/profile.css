@@ -1,0 +1,47 @@
+#background {
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../images/soil.jpg");
+	background-size: cover;
+}
+
+#mainDiv {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.mainRow {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.label {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.data {
+	font-size: 20px;
+}
+
+.plantRow {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+#plants {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.plantRow {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 30px;
+	font-weight: 20px;
+}
