@@ -5,14 +5,15 @@ import { auth, signInWithGoogle, generateUserDocument } from "../firebase";
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [displayName, setDisplayName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [error, setError] = useState(null);
 
   const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
-      generateUserDocument(user, {displayName});
+      generateUserDocument(user, {firstName, lastName, "plants": [], "currency": 0});
     }
     catch(error){
       setError('Error Signing up with email and password');
@@ -20,7 +21,8 @@ const SignUp = () => {
       
     setEmail("");
     setPassword("");
-    setDisplayName("");
+    setFirstName("");
+    setLastName("");
   };
 
   const onChangeHandler = event => {
@@ -30,8 +32,10 @@ const SignUp = () => {
       setEmail(value);
     } else if (name === "userPassword") {
       setPassword(value);
-    } else if (name === "displayName") {
-      setDisplayName(value);
+    } else if (name === "firstName") {
+      setFirstName(value);
+    } else if (name === "lastName") {
+      setLastName(value);
     }
   };
 
@@ -45,16 +49,28 @@ const SignUp = () => {
           </div>
         )}
         <form className="">
-          <label htmlFor="displayName" className="block">
-            Display Name:
+          <label htmlFor="firstName" className="block">
+            First Name:
           </label>
           <input
             type="text"
             className="my-1 p-1 w-full "
-            name="displayName"
-            value={displayName}
-            placeholder="E.g: Faruq"
-            id="displayName"
+            name="firstName"
+            value={firstName}
+            placeholder="E.g: William"
+            id="firstName"
+            onChange={event => onChangeHandler(event)}
+          />
+          <label htmlFor="lastName" className="block">
+            Last Name:
+          </label>
+          <input
+            type="text"
+            className="my-1 p-1 w-full "
+            name="lastName"
+            value={lastName}
+            placeholder="E.g: Zhao"
+            id="lastName"
             onChange={event => onChangeHandler(event)}
           />
           <label htmlFor="userEmail" className="block">
