@@ -3,15 +3,8 @@ import "firebase/auth";
 import "firebase/firestore";
 import { functions } from "firebase";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDVmDDnWUIn72ldYlxsZH_sTUBCgfVoPKU",
-    authDomain: "arnoldii.firebaseapp.com",
-    projectId: "arnoldii",
-    storageBucket: "arnoldii.appspot.com",
-    messagingSenderId: "391344861016",
-    appId: "1:391344861016:web:c5ad734d59c4deb1603f2d",
-    measurementId: "G-YVNXJ80SVN"
-};
+const firebaseConfig = require('./firebaseCreds.json');
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
