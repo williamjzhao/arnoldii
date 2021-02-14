@@ -23,7 +23,6 @@ const Plants = () => {
 const Home = () => {
   return (
     <Box id="background">
-      HIHIHIHI
       <Plants />
     </Box>
   );
